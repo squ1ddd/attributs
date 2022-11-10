@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="attributs.Vues.AttributVue"
+             Title="AttributVue">
+    <VerticalStackLayout>
+        <Label 
+            Text="Création de classe"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label Text="Nom de la classe" />
+        <Entry x:Name="classe" Placeholder="nom de la classe"/>
+        <Label Text="Choisissez la visibilité de l'attribut" />
+        <Entry x:Name="vis" Placeholder="visibilité"  />
+        <Label Text="Choisissez le type de l'attribut"/>
+        <Entry x:Name="type" Placeholder="type"/>
+        <Label Text="Choississez le nom de l'attribut"/>
+        <Entry x:Name="nom" Placeholder="nom"/>
+        <Button Text="AjouterAutreAttribut" Clicked="Button_Clicked_1"/>
+        <Button Text="Valider" Clicked="Button_Clicked"/>
+        <Label 
+            Text="{Binding Affichage}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>
