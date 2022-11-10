@@ -45,7 +45,7 @@ namespace attributs.Modeles
         #region Methods
         public string GetAttribute()
         {
-            return _visibilite+" "+_type+" _"+_nonAttribut+";";
+            return " "+_visibilite+" "+_type+" _"+_nonAttribut+"; \n";
         }
         public string GetGettersSetters()
         {
@@ -53,11 +53,11 @@ namespace attributs.Modeles
             {
                 string param = _nonAttribut.First().ToString().ToUpper();
                 string res = param.ToString()+_nonAttribut.Substring(1,_nonAttribut.Length-1);
-                return "public " + _type + " " + res+
-                    " {"+
-                    " get { return "+_nonAttribut+"; } "+
-                    " set { "+_nonAttribut+" = value; } "+
-                    " }"
+                return "public " + _type + " " + res+ "\n"+
+                    " {\n"+
+                    "        get { return "+_nonAttribut+"; } \n"+
+                    "        set { "+_nonAttribut+" = value; } \n"+
+                    " } \n"
                     ;
             }
             else

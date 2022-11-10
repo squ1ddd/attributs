@@ -41,8 +41,7 @@ namespace attributs.VueModeles
         {
             foreach(Attribut att in _unAttribut)
             {
-                Affichage += att.GetAttribute() + att.GetGettersSetters();
-                
+                Affichage += att.GetAttribute() +" "+ att.GetGettersSetters(); 
             }
             
             return Affichage;

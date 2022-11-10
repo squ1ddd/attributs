@@ -18,6 +18,7 @@
         <Entry x:Name="nom" Placeholder="nom"/>
         <Button Text="AjouterAutreAttribut" Clicked="Button_Clicked_1"/>
         <Button Text="Valider" Clicked="Button_Clicked"/>
+
         <Label 
             Text="{Binding Affichage}"
             VerticalOptions="Center" 
