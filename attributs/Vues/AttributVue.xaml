@@ -3,25 +3,73 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="attributs.Vues.AttributVue"
              Title="AttributVue">
-    <VerticalStackLayout>
-        <Label 
+    <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
+        <VerticalStackLayout>
+            <Label 
             Text="Création de classe"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        <Label Text="Nom de la classe" />
-        <Entry x:Name="classe" Placeholder="nom de la classe"/>
-        <Label Text="Choisissez la visibilité de l'attribut" />
-        <Entry x:Name="vis" Placeholder="visibilité"  />
-        <Label Text="Choisissez le type de l'attribut"/>
-        <Entry x:Name="type" Placeholder="type"/>
-        <Label Text="Choississez le nom de l'attribut"/>
-        <Entry x:Name="nom" Placeholder="nom"/>
-        <Button Text="AjouterAutreAttribut" Clicked="Button_Clicked_1"/>
-        <Button Text="Valider" Clicked="Button_Clicked"/>
+            <Label Text="Nom de la classe" />
+            <Entry x:Name="classe" Placeholder="nom de la classe"/>
+            <Label Text="Choisissez la visibilité de l'attribut" />
+            <Entry x:Name="vis" Placeholder="visibilité"  />
+            <Label Text="Choisissez le type de l'attribut"/>
+            <Entry x:Name="type" Placeholder="type"/>
+            <Label Text="Choississez le nom de l'attribut"/>
+            <Entry x:Name="nom" Placeholder="nom"/>
+            <Button Text="AjouterAutreAttribut" Clicked="Button_Clicked_1"/>
+            <Button Text="Valider" Clicked="Button_Clicked"/>
 
-        <Label 
-            Text="{Binding Affichage}"
+            <Label 
+            Text="{Binding Cla}"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-    </VerticalStackLayout>
+            <Label 
+            Text="#region Attributes"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Label
+            Text="{Binding Attr}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Label 
+            Text="#endregion Attributes"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Label 
+            Text="#region Constructor"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Label 
+            Text="#endregion"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Label 
+            Text="#region Getters/Setters"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Label 
+            Text="{Binding GetSet}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Label 
+            Text="#endregion"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Label 
+            Text="#region Methods"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Label 
+            Text="#endregion"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Label 
+            Text="}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

@@ -12,15 +12,17 @@ namespace attributs.Modeles
         private string _nonAttribut;
         private string _type;
         private string _visibilite;
+        private string _classe;
         
         #endregion
 
         #region Constructor
-        public Attribut(string nonAttribut, string type,string visibilite)
+        public Attribut(string nonAttribut, string type,string visibilite,string cla)
         {
             NonAttribut = nonAttribut;
             Type = type;
             Visibilite = visibilite;
+            Classe  = cla;
         }
         #endregion
 
@@ -40,12 +42,17 @@ namespace attributs.Modeles
             get { return _visibilite; }
             set { _visibilite = value; }
         }
+        public string Classe
+        {
+            get { return _classe; }
+            set { _classe = value; }
+        }
         #endregion
 
         #region Methods
         public string GetAttribute()
         {
-            return " "+_visibilite+" "+_type+" _"+_nonAttribut+"; \n";
+            return " "+_visibilite+" "+_type+" "+" _"+_nonAttribut+"; \n";
         }
         public string GetGettersSetters()
         {
@@ -53,17 +60,21 @@ namespace attributs.Modeles
             {
                 string param = _nonAttribut.First().ToString().ToUpper();
                 string res = param.ToString()+_nonAttribut.Substring(1,_nonAttribut.Length-1);
-                return "public " + _type + " " + res+ "\n"+
-                    " {\n"+
-                    "        get { return "+_nonAttribut+"; } \n"+
-                    "        set { "+_nonAttribut+" = value; } \n"+
-                    " } \n"
+                return " "+"public " + _type + " " + res+ "\n"+
+                    " " + " {\n" +
+                    " " + "        get { return " +_nonAttribut+"; } \n"+
+                    " " + "        set { " +_nonAttribut+" = value; } \n"+
+                    " " + " } \n"
                     ;
             }
             else
             {
                 return "";
             }
+        }
+        public string GetClasse()
+        {
+            return " " + "public class" + _classe + " \n" + " " + " { ";
         }
         #endregion
     }

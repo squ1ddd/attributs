@@ -13,12 +13,12 @@ public partial class AttributVue : ContentPage
 
 	private void Button_Clicked(object sender, EventArgs e)
 	{
-		vueModele.Afficher();		
+		vueModele.Afficher();
 	}
 
 	private void Button_Clicked_1(object sender, EventArgs e)
 	{
-        vueModele.UnAttribut.Add(new Attribut(nom.Text, type.Text, vis.Text));
+        vueModele.UnAttribut.Add(new Attribut(nom.Text, type.Text, vis.Text,classe.Text));
 		vis.Text = "";
 		type.Text = "";
 		nom.Text = "";
