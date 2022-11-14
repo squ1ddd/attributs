@@ -13,15 +13,23 @@ namespace attributs.Modeles
         private string _type;
         private string _visibilite;
         private string _classe;
+        private Boolean _comboGet;
+        private Boolean _comboSet;
+        public static List<int> Compteur = new List<int>();
+        int valeur;
         #endregion
 
         #region Constructor
-        public Attribut(string nonAttribut, string type,string visibilite,string cla)
+        public Attribut(string nonAttribut, string type,string visibilite,string cla, Boolean CBget, Boolean CBset)
         {
             NonAttribut = nonAttribut;
             Type = type;
             Visibilite = visibilite;
             Classe  = cla;
+            this.Soustraire();
+            Compteur.Add(valeur);
+            ComboGet = CBget;
+            ComboSet = CBset;
         }
         #endregion
 
@@ -46,6 +54,16 @@ namespace attributs.Modeles
             get { return _classe; }
             set { _classe = value; }
         }
+        public Boolean ComboGet
+        {
+            get { return _comboGet; }
+            set { _comboGet = value; }
+        }
+        public Boolean ComboSet
+        {
+            get { return _comboSet; }
+            set { _comboSet = value; }
+        }
         #endregion
 
         #region Methods
@@ -53,7 +71,18 @@ namespace attributs.Modeles
         {
             return " "+_visibilite+" "+_type+" "+" _"+_nonAttribut+"; \n";
         }
-        public string GetGettersSetters()
+        public void Soustraire()
+        {
+            if (Compteur.Count == 0)
+            {
+                valeur = 0;
+            }
+            else
+            {
+                valeur = Compteur[Compteur[Compteur.Count - 1]] + 1;
+            }
+        }
+        public string GetGettersSetters(string getters,string setters)
         {
             if (!_visibilite.Equals("public"))
             {
@@ -61,8 +90,8 @@ namespace attributs.Modeles
                 string res = param.ToString()+_nonAttribut.Substring(1,_nonAttribut.Length-1);
                 return " "+"public " + _type + " " + res+ "\n"+
                     " " + " {\n" +
-                    " " + "        get { return _" +_nonAttribut+"; } \n"+
-                    " " + "        set { _" +_nonAttribut+" = value; } \n"+
+                    getters+
+                    setters+
                     " " + " } \n"
                     ;
             }
@@ -71,13 +100,43 @@ namespace attributs.Modeles
                 return "";
             }
         }
+        public string GetGetters()
+        {
+            return " " + "        get { return _" + _nonAttribut + "; } \n";
+        }
+        public string GetSetters()
+        {
+            return " " + "        set { _" + _nonAttribut + " = value; } \n";  
+        }
         public string GetClasse()
         {
             return " " + "public class" + _classe + " \n" + " " + " { ";
         }
-        public string GetConstructeur()
+        public string GetConstructeur(string param,string param2)
         {
-            return " " + " public " + _classe + " " + " ()\n " + " {\n\n" + " " + " }";
+            return " " + " public " + _classe + " " + " ("+param+")\n " + " {\n" +param2+ " " + " }";
+        }
+        public string GetParam()
+        {
+            int index=0;
+            Compteur.Reverse();
+            foreach(int i in Compteur)
+            {
+                index = i;
+            }
+            
+            return " " + _type + " param"+index + ", ";
+        }
+        public string GetParam2()
+        {
+            int index =0;
+            foreach(int i in Compteur)
+            {
+                index = i;
+            }
+            Compteur.Remove(index);
+            Compteur.Reverse();
+            return "        _"+_nonAttribut + " ="+" param" + index + ";\n";
         }
         #endregion
     }

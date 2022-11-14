@@ -11,20 +11,27 @@
             HorizontalOptions="Center" />
             <Label Text="Nom de la classe" />
             <Entry x:Name="classe" Placeholder="nom de la classe"/>
-            <Label Text="Choisissez la visibilité de l'attribut" />
+            <Label Text="Ecrire la visibilité de l'attribut (private ou public)" />
             <Entry x:Name="vis" Placeholder="visibilité"  />
-            <Label Text="Choisissez le type de l'attribut"/>
+            <Label Text="Ecrire le type de l'attribut"/>
             <Entry x:Name="type" Placeholder="type"/>
-            <Label Text="Choississez le nom de l'attribut sans le_"/>
+            <Label Text="Ecrire le nom de l'attribut sans le_"/>
             <Entry x:Name="nom" Placeholder="nom"/>
             <Label x:Name="valeurNulle" Text="Rentrer des valeurs dans toutes les cases" TextColor="Red" IsVisible="False"/>
+            <Label x:Name="resteAttributs" Text="Veuillez ajouter les attributs non ajoutés" TextColor="Red" IsVisible="False"/>
+            <Label Text="Voulez vous des getters (cocher la case)"/>
+            <CheckBox x:Name="gettersCheckBox" IsChecked="False"/>
+            <Label Text="Voulez vous des setters (cocher la case)"/>
+            <CheckBox x:Name="settersCheckBox" IsChecked="False"/>
             <Button Text="Ajouter l'attribut" Clicked="Button_Clicked_1"/>
             <Button Text="Valider" Clicked="Button_Clicked"/>
+            
 
             <Label 
             Text="{Binding Cla}"
             VerticalOptions="Center" 
              />
+            <Label/>
             <Label 
             Text="#region Attributes"
             VerticalOptions="Center" 
@@ -37,6 +44,7 @@
             Text="#endregion Attributes"
             VerticalOptions="Center" 
             />
+            <Label/>
             <Label 
             Text="#region Constructor"
             VerticalOptions="Center" 
@@ -45,10 +53,11 @@
             Text="{Binding Const}"
             VerticalOptions="Center" 
              />
-            <Label 
+            <Label
             Text="#endregion"
             VerticalOptions="Center" 
              />
+            <Label/>
             <Label 
             Text="#region Getters/Setters"
             VerticalOptions="Center" 
@@ -61,6 +70,7 @@
             Text="#endregion"
             VerticalOptions="Center" 
             />
+            <Label/>
             <Label 
             Text="#region Methods"
             VerticalOptions="Center" 
@@ -69,6 +79,7 @@
             Text="#endregion"
             VerticalOptions="Center" 
              />
+            <Label/>
             <Label 
             Text="}"
             VerticalOptions="Center" 

@@ -17,6 +17,8 @@ namespace attributs.VueModeles
         private string _getSet = "";
         private string _cla = "";
         private string _const = "";
+        private string _getters = "";
+        private string _setters = "";
 
         #endregion
 
@@ -53,6 +55,16 @@ namespace attributs.VueModeles
             get { return _getSet; }
             set { SetProperty(ref _getSet, value); }
         }
+        public string Getters
+        {
+            get { return _getters; }
+            set { SetProperty(ref _getters, value); }
+        }
+        public string Setters
+        {
+            get { return _setters; }
+            set { SetProperty(ref _setters, value); }
+        }
 
         #endregion
 
@@ -61,12 +73,39 @@ namespace attributs.VueModeles
         {
             List<string> list = new List<string>();
             List<string> list2 = new List<string>();
+            string param = "";
+            string param2 = "";
             foreach (Attribut att in _unAttribut)
             {
+                if (att.ComboGet is true)
+                {
+                    Getters = att.GetGetters();
+                }
+                else
+                {
+                    Getters = "";
+                }
+                if (att.ComboSet is true)
+                {
+                    Setters = att.GetSetters();
+                }
+                else
+                {
+                    Setters = "";
+                }
+                if(att.ComboGet is false && att.ComboSet is false)
+                {
+
+                }
+                else
+                {
+                    list2.Add(att.GetGettersSetters(Getters, Setters));
+                }
                 list.Add(att.GetAttribute());
-                list2.Add(att.GetGettersSetters());
                 Cla = att.GetClasse();
-                Const = att.GetConstructeur();
+                param += att.GetParam();
+                param2 += att.GetParam2();
+                Const = att.GetConstructeur(param,param2);
                 //Affichage += att.GetAttribute() +" "+ att.GetGettersSetters(); 
             }
             foreach(string s in list)
