@@ -16,6 +16,7 @@ namespace attributs.VueModeles
         private string _attr = "";
         private string _getSet = "";
         private string _cla = "";
+        private string _const = "";
 
         #endregion
 
@@ -36,6 +37,11 @@ namespace attributs.VueModeles
         {
             get { return _attr; }
             set { SetProperty(ref _attr, value); }
+        }
+        public string Const
+        {
+            get { return _const; }
+            set { SetProperty(ref _const, value); }
         }
         public string Cla
         {
@@ -60,6 +66,7 @@ namespace attributs.VueModeles
                 list.Add(att.GetAttribute());
                 list2.Add(att.GetGettersSetters());
                 Cla = att.GetClasse();
+                Const = att.GetConstructeur();
                 //Affichage += att.GetAttribute() +" "+ att.GetGettersSetters(); 
             }
             foreach(string s in list)

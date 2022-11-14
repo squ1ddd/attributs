@@ -41,6 +41,10 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
             <Label 
+            Text="{Binding Const}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Label 
             Text="#endregion"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
