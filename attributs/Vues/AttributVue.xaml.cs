@@ -20,6 +20,7 @@ public partial class AttributVue : ContentPage
 		else
 		{
             vueModele.Afficher();
+			//vueModele.Telechargement(Affichage.ToString());
         }
 	}
 

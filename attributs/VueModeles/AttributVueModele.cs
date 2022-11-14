@@ -118,6 +118,12 @@ namespace attributs.VueModeles
             }
 
         }
+        public void Telechargement(string param)
+        {
+            StreamWriter sw = new StreamWriter("Téléchargements");
+            sw.WriteLine(param);
+            sw.Close();
+        }
         #endregion
     }
 }

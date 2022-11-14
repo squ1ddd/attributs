@@ -25,8 +25,8 @@
             <CheckBox x:Name="settersCheckBox" IsChecked="False"/>
             <Button Text="Ajouter l'attribut" Clicked="Button_Clicked_1"/>
             <Button Text="Valider" Clicked="Button_Clicked"/>
-            
 
+            <StackLayout x:Name="Affichage">
             <Label 
             Text="{Binding Cla}"
             VerticalOptions="Center" 
@@ -84,7 +84,7 @@
             Text="}"
             VerticalOptions="Center" 
             />
-
+            </StackLayout>
 
         </VerticalStackLayout>
     </ScrollView>

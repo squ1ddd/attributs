@@ -69,7 +69,16 @@ namespace attributs.Modeles
         #region Methods
         public string GetAttribute()
         {
-            return " "+_visibilite+" "+_type+" "+" _"+_nonAttribut+"; \n";
+            if (!_visibilite.Equals("public"))
+            {
+                return " " + _visibilite + " " + _type + " " + " _" + _nonAttribut + "; \n";
+            }
+            else
+            {
+                string param = _nonAttribut.First().ToString().ToUpper();
+                string res = param.ToString() + _nonAttribut.Substring(1, _nonAttribut.Length - 1);
+                return " " + _visibilite + " " + _type + " " + res + "; \n";
+            }
         }
         public void Soustraire()
         {
@@ -116,6 +125,7 @@ namespace attributs.Modeles
         {
             return " " + " public " + _classe + " " + " ("+param+")\n " + " {\n" +param2+ " " + " }";
         }
+        //donne le paramètre du constructeur
         public string GetParam()
         {
             int index=0;
@@ -124,11 +134,30 @@ namespace attributs.Modeles
             {
                 index = i;
             }
-            
-            return " " + _type + " param"+index + ", ";
+            string virgule;
+            if(Compteur.Count == 1)
+            {
+                virgule = " ";
+            }
+            else
+            {
+                virgule = ", ";
+            }
+            return " " + _type + " param"+index + virgule;
         }
+        //attribue les valeurs dans le constructeur
         public string GetParam2()
         {
+            string res="";
+            if (!_visibilite.Equals("public"))
+            {
+                res = "        _" + _nonAttribut;
+            }
+            else
+            {
+                string param = _nonAttribut.First().ToString().ToUpper();
+                res = "        "+param.ToString() + _nonAttribut.Substring(1, _nonAttribut.Length - 1);
+            }
             int index =0;
             foreach(int i in Compteur)
             {
@@ -136,7 +165,7 @@ namespace attributs.Modeles
             }
             Compteur.Remove(index);
             Compteur.Reverse();
-            return "        _"+_nonAttribut + " ="+" param" + index + ";\n";
+            return res + " ="+" param" + index + ";\n";
         }
         #endregion
     }
