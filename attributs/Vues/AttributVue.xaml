@@ -17,7 +17,8 @@
             <Entry x:Name="type" Placeholder="type"/>
             <Label Text="Choississez le nom de l'attribut sans le_"/>
             <Entry x:Name="nom" Placeholder="nom"/>
-            <Button Text="AjouterAutreAttribut" Clicked="Button_Clicked_1"/>
+            <Label x:Name="valeurNulle" Text="Rentrer des valeurs dans toutes les cases" TextColor="Red" IsVisible="False"/>
+            <Button Text="Ajouter l'attribut" Clicked="Button_Clicked_1"/>
             <Button Text="Valider" Clicked="Button_Clicked"/>
 
             <Label 

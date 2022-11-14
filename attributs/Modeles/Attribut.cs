@@ -13,7 +13,6 @@ namespace attributs.Modeles
         private string _type;
         private string _visibilite;
         private string _classe;
-        
         #endregion
 
         #region Constructor
@@ -62,8 +61,8 @@ namespace attributs.Modeles
                 string res = param.ToString()+_nonAttribut.Substring(1,_nonAttribut.Length-1);
                 return " "+"public " + _type + " " + res+ "\n"+
                     " " + " {\n" +
-                    " " + "        get { return " +_nonAttribut+"; } \n"+
-                    " " + "        set { " +_nonAttribut+" = value; } \n"+
+                    " " + "        get { return _" +_nonAttribut+"; } \n"+
+                    " " + "        set { _" +_nonAttribut+" = value; } \n"+
                     " " + " } \n"
                     ;
             }

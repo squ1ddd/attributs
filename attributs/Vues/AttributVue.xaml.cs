@@ -18,9 +18,18 @@ public partial class AttributVue : ContentPage
 
 	private void Button_Clicked_1(object sender, EventArgs e)
 	{
-        vueModele.UnAttribut.Add(new Attribut(nom.Text, type.Text, vis.Text,classe.Text));
-		vis.Text = "";
+		if ((vis.Text is not null) && (type.Text is not null) && (nom.Text is not null) && (classe.Text is not null))
+		{
+            vueModele.UnAttribut.Add(new Attribut(nom.Text, type.Text, vis.Text, classe.Text));
+			valeurNulle.IsVisible = false;
+        }
+		else
+		{
+			valeurNulle.IsVisible = true;
+		}
+        vis.Text = "";
 		type.Text = "";
 		nom.Text = "";
+		
     }
 }
