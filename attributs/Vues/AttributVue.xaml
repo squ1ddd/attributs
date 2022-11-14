@@ -23,55 +23,55 @@
             <Label 
             Text="{Binding Cla}"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             />
             <Label 
             Text="#region Attributes"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            />
             <Label
             Text="{Binding Attr}"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            />
             <Label 
             Text="#endregion Attributes"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            />
             <Label 
             Text="#region Constructor"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            />
             <Label 
             Text="{Binding Const}"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             />
             <Label 
             Text="#endregion"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             />
             <Label 
             Text="#region Getters/Setters"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             />
             <Label 
             Text="{Binding GetSet}"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             />
             <Label 
             Text="#endregion"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            />
             <Label 
             Text="#region Methods"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            />
             <Label 
             Text="#endregion"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             />
             <Label 
             Text="}"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            />
 
 
         </VerticalStackLayout>

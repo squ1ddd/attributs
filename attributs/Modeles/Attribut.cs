@@ -78,7 +78,7 @@ namespace attributs.Modeles
         }
         public string GetConstructeur()
         {
-            return " " + " public " + _classe + " \n" + " () " + " {\n\n" + " " + " }";
+            return " " + " public " + _classe + " " + " ()\n " + " {\n\n" + " " + " }";
         }
         #endregion
     }
