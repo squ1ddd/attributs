@@ -17,6 +17,7 @@ namespace attributs.Modeles
         private Boolean _comboSet;
         public static List<int> Compteur = new List<int>();
         int valeur;
+        string indentation = "        ";
         #endregion
 
         #region Constructor
@@ -71,13 +72,13 @@ namespace attributs.Modeles
         {
             if (!_visibilite.Equals("public"))
             {
-                return " " + _visibilite + " " + _type + " " + " _" + _nonAttribut + "; \n";
+                return indentation+" " + _visibilite + " " + _type + " " + " _" + _nonAttribut + "; \n";
             }
             else
             {
                 string param = _nonAttribut.First().ToString().ToUpper();
                 string res = param.ToString() + _nonAttribut.Substring(1, _nonAttribut.Length - 1);
-                return " " + _visibilite + " " + _type + " " + res + "; \n";
+                return indentation+" " + _visibilite + " " + _type + " " + res + "; \n";
             }
         }
         public void Soustraire()
@@ -97,11 +98,11 @@ namespace attributs.Modeles
             {
                 string param = _nonAttribut.First().ToString().ToUpper();
                 string res = param.ToString()+_nonAttribut.Substring(1,_nonAttribut.Length-1);
-                return " "+"public " + _type + " " + res+ "\n"+
-                    " " + " {\n" +
+                return indentation+" "+"public " + _type + " " + res+ "\n"+
+                    indentation+" " + " {\n" +
                     getters+
                     setters+
-                    " " + " } \n"
+                    indentation+" " + " } \n"
                     ;
             }
             else
@@ -111,11 +112,11 @@ namespace attributs.Modeles
         }
         public string GetGetters()
         {
-            return " " + "        get { return _" + _nonAttribut + "; } \n";
+            return indentation + " " + "        get { return _" + _nonAttribut + "; } \n";
         }
         public string GetSetters()
         {
-            return " " + "        set { _" + _nonAttribut + " = value; } \n";  
+            return indentation + " " + "        set { _" + _nonAttribut + " = value; } \n";  
         }
         public string GetClasse()
         {
@@ -123,7 +124,7 @@ namespace attributs.Modeles
         }
         public string GetConstructeur(string param,string param2)
         {
-            return " " + " public " + _classe + " " + " ("+param+")\n " + " {\n" +param2+ " " + " }";
+            return indentation + " " + " public " + _classe + " " + " ("+param+")\n " + indentation+" {\n" +param2+ " " +indentation+ " }";
         }
         //donne le paramètre du constructeur
         public string GetParam()
@@ -165,7 +166,7 @@ namespace attributs.Modeles
             }
             Compteur.Remove(index);
             Compteur.Reverse();
-            return res + " ="+" param" + index + ";\n";
+            return indentation+res + " ="+" param" + index + ";\n";
         }
         #endregion
     }

@@ -33,7 +33,7 @@
              />
             <Label/>
             <Label 
-            Text="#region Attributes"
+            Text="        #region Attributes"
             VerticalOptions="Center" 
             />
             <Label
@@ -41,12 +41,12 @@
             VerticalOptions="Center" 
             />
             <Label 
-            Text="#endregion Attributes"
+            Text="        #endregion"
             VerticalOptions="Center" 
             />
             <Label/>
             <Label 
-            Text="#region Constructor"
+            Text="        #region Constructor"
             VerticalOptions="Center" 
             />
             <Label 
@@ -54,12 +54,12 @@
             VerticalOptions="Center" 
              />
             <Label
-            Text="#endregion"
+            Text="        #endregion"
             VerticalOptions="Center" 
              />
             <Label/>
             <Label 
-            Text="#region Getters/Setters"
+            Text="        #region Getters/Setters"
             VerticalOptions="Center" 
              />
             <Label 
@@ -67,16 +67,16 @@
             VerticalOptions="Center" 
              />
             <Label 
-            Text="#endregion"
+            Text="        #endregion"
             VerticalOptions="Center" 
             />
             <Label/>
             <Label 
-            Text="#region Methods"
+            Text="        #region Methods"
             VerticalOptions="Center" 
             />
             <Label 
-            Text="#endregion"
+            Text="        #endregion"
             VerticalOptions="Center" 
              />
             <Label/>
