@@ -144,7 +144,14 @@ namespace attributs.Modeles
             {
                 virgule = ", ";
             }
-            return " " + _type + " param"+index + virgule;
+            if (_type.Contains("List"))
+            {
+                return "";
+            }
+            else
+            {
+                return " " + _type + " param" + index + virgule;
+            }
         }
         //attribue les valeurs dans le constructeur
         public string GetParam2()
@@ -166,7 +173,14 @@ namespace attributs.Modeles
             }
             Compteur.Remove(index);
             Compteur.Reverse();
-            return indentation+res + " ="+" param" + index + ";\n";
+            if (_type.Contains("List"))
+            {
+                return indentation +indentation+"_" + _nonAttribut + " = new " + _type + " ();\n";
+            }
+            else
+            {
+                return indentation + res + " =" + " param" + index + ";\n";
+            }
         }
         #endregion
     }
