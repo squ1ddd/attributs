@@ -70,8 +70,13 @@ namespace attributs.Modeles
         #region Methods
         public string GetAttribute()
         {
+
             if (!_visibilite.Equals("public"))
             {
+                if ((_type.Contains("List") && (!_type.Contains("string") && !_type.Contains("int") && !_type.Contains("String") && !_type.Contains("double") && !_type.Contains("char") && !_type.Contains("bool") && !_type.Contains("Boolean") && !_type.Contains("float"))||_type.Contains("Dictionary")))
+                {
+                    return indentation + " " + _visibilite + " " + _type + " " + " _" + _nonAttribut +" = new "+_type+"()"+ "; \n";
+                }
                 return indentation+" " + _visibilite + " " + _type + " " + " _" + _nonAttribut + "; \n";
             }
             else
@@ -144,7 +149,7 @@ namespace attributs.Modeles
             {
                 virgule = ", ";
             }
-            if (_type.Contains("List"))
+            if (_type.Contains("List")||_type.Contains("Dictionary"))
             {
                 return "";
             }
@@ -173,9 +178,17 @@ namespace attributs.Modeles
             }
             Compteur.Remove(index);
             Compteur.Reverse();
-            if (_type.Contains("List"))
+            if (_type.Contains("List")&&(_type.Contains("string") || _type.Contains("int") || _type.Contains("String") || _type.Contains("double") || _type.Contains("char") || _type.Contains("bool") || _type.Contains("Boolean") || _type.Contains("float")))
             {
                 return indentation +indentation+"_" + _nonAttribut + " = new " + _type + " ();\n";
+            }
+            else if (_type.Contains("List") && _visibilite.Contains("public"))
+            {
+                return indentation + indentation + _nonAttribut + ".Add(this);\n";
+            }
+            else if (_type.Contains("List")||Type.Contains("Dictionary"))
+            {
+                return "";
             }
             else
             {
